@@ -42,9 +42,9 @@ module.exports = {
       logo: path.resolve(__dirname, 'images', configSite.logo),
       prefix: "",
       outputPath: path.resolve(__dirname,  'icons'),
-      publicPath: "/test-PJATK-SUM.github.io/icons",
+      publicPath: "/icons",
       favicons: {
-        start_url: "/test-PJATK-SUM.github.io/?homescreen=1",
+        start_url: "/?homescreen=1",
         appName: configSite.title,
         appShortName: configSite.short_name,
         appDescription: configSite.description,
