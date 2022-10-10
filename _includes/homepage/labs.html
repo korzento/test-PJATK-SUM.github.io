@@ -1,0 +1,37 @@
+{% assign i18n = site.i18n[page.language] %}
+<section id="labs">
+    <div class="container">
+        <h2 class="animated">{{ i18n.labs.title }}</h2>
+        <div class="row">
+            <div class="col-6 animated">
+                <p>{{ i18n.labs.description }}</p>
+                {% for lab in i18n.labs.list %}
+                <p>
+                    <strong>{{ lab.title }}</strong>
+                    - {{ lab.description }}
+                </p>
+                {% endfor %}
+            </div>
+            <div class="col-6">
+                <div class="device">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                              {% for device in i18n.labs.devices_first %}
+                                <li>{{ device }}</li>
+                              {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul>
+                              {% for device in i18n.labs.devices_second %}
+                                <li>{{ device }}</li>
+                              {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

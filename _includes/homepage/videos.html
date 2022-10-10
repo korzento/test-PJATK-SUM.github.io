@@ -1,0 +1,19 @@
+{% assign i18n = site.i18n[page.language] %}
+<section id="videos" class="parallax">
+    <div class="container">
+        <h2>{{ i18n.videos.title }}</h2>
+
+        <div class="video">
+            <div class="row">
+            {% for video in i18n.videos.list %}
+                <div class="col-4">
+                    <figure data-url="{{ video.link }}">
+                        <h3>{{ video.title }}</h3>
+                    </figure>
+                </div>
+                {% cycle '', '', '</div><div class="row">' %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
