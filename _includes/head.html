@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ page.baseurl }}images/favicon.ico" type="image/x-icon">
     {% include _pwa.html %}
 
-    <link rel="preload" href="/images/{{ site.logo }}" as="image">
+    <link rel="preload" href="{{ page.baseurl }}images/{{ site.logo }}" as="image">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
     <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
 
@@ -26,7 +26,7 @@
         {% include inline.scss %}
     {% endcapture %}
     <style>
-        :root{--logo: url(/images/{{ site.logo }})}
+        :root{--logo: url({{ page.baseurl }}images/{{ site.logo }})}
         {{inline_css | scssify}}
     </style>
 

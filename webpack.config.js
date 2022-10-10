@@ -42,7 +42,7 @@ module.exports = {
       logo: path.resolve(__dirname, 'images', configSite.logo),
       prefix: "",
       outputPath: path.resolve(__dirname,  'icons'),
-      publicPath: "/icons",
+      publicPath: "icons",
       favicons: {
         appName: configSite.title,
         appShortName: configSite.short_name,

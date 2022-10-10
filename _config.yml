@@ -9,6 +9,7 @@ theme_color: "#e51a26"
 url: "https://sum.pja.edu.pl"
 logo: "logo-pjatk.webp"
 github_username: PJATK-SUM
+baseurl: '/'
 
 exclude:
   - package*
@@ -102,11 +103,11 @@ i18n:
       title: Projekty studentów
       list:
         - name: PJATK Android
-          image: /images/app-pjwstk-android.webp
+          image: images/app-pjwstk-android.webp
           href: https://play.google.com/store/apps/details?id=com.pjwstk.mobile.dziekanat
           link: play.google.com
         - name: PJATK iOS
-          image: /images/app-pjwstk-apple.webp
+          image: images/app-pjwstk-apple.webp
           href: https://itunes.apple.com/pl/app/pjwstk/id828657671?mt=8
           link: itunes.apple.com
     videos:
@@ -213,11 +214,11 @@ i18n:
       title: Students projects
       list:
         - name: PJATK Android
-          image: /images/app-pjwstk-android.webp
+          image: images/app-pjwstk-android.webp
           href: https://play.google.com/store/apps/details?id=com.pjwstk.mobile.dziekanat
           link: play.google.com
         - name: PJATK iOS
-          image: /images/app-pjwstk-apple.webp
+          image: images/app-pjwstk-apple.webp
           href: https://itunes.apple.com/pl/app/pjwstk/id828657671?mt=8
           link: itunes.apple.com
     videos:
