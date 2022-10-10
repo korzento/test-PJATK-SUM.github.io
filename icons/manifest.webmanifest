@@ -6,7 +6,7 @@
   "lang": "pl-PL",
   "display": "standalone",
   "orientation": "any",
-  "start_url": "/?homescreen=1",
+  "start_url": "/test-PJATK-SUM.github.io/?homescreen=1",
   "background_color": "#fff",
   "theme_color": "#e51a26",
   "icons": [
