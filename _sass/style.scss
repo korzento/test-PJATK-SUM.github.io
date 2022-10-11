@@ -17,7 +17,6 @@ $grey: #36393c;
   transition: $what $speed ease-in-out;
 }
 
-
 * {
   padding: 0;
   margin: 0;
@@ -29,6 +28,7 @@ body {
   background: $white;
   width: 100%;
   height: 100%;
+  color: $black;
 }
 
 .container {
@@ -40,6 +40,11 @@ body {
 .logo {
   background-image: var(--logo);
   background-size: contain;
+  background-repeat: no-repeat;
+
+  &.white {
+    background-image: var(--logo-white);
+  }
 }
 
 header {
@@ -56,6 +61,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(0.7);
   }
 
   .page-title {
@@ -111,7 +117,6 @@ header {
     top: -10em;
     @include transitionElement(0.5s, top);
 
-
     .language-selector {
       display: inline-block;
       position: relative;
@@ -131,12 +136,13 @@ header {
         visibility: hidden;
         position: absolute;
         background-color: $white;
-        padding: .5em;
-        width: 100%;
+        padding: 0.5em;
         border-radius: 0.5em;
+        width: calc(100% + 20px);
+        left: -10px;
         opacity: 0;
         font-weight: bold;
-        font-size: 0.875em;
+        font-size: 1em;
         box-shadow: 0px 2px 3px 3px #00000030;
 
         @include transition(0.3s);
@@ -144,6 +150,13 @@ header {
         a {
           color: $black;
           text-decoration: none;
+          font-weight: 600;
+          width: 100%;
+          display: block;
+
+          &:hover {
+            color: $red;
+          }
         }
       }
 
@@ -151,11 +164,10 @@ header {
         visibility: visible;
         opacity: 1;
       }
-
     }
 
     menuitem {
-      margin-right: 1.75em;
+      margin: 0 0.825em;
 
       a {
         color: $white;
@@ -181,9 +193,29 @@ header {
       background: $black;
       z-index: 999999;
       margin: 0;
-      padding: 1em;
-    }
+      padding: 0.5em 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
+      menuitem:first-child {
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:before {
+            content: '';
+            background-image: var(--logo-white);
+            background-size: contain;
+            height: 50px;
+            width: 50px;
+            margin-right: 1em;
+            display: inline-block;
+          }
+        }
+      }
+    }
   }
 
   h2 {
@@ -249,7 +281,7 @@ main {
       overflow: hidden;
       line-height: 0;
       color: transparent;
-      @include transition(.3s);
+      @include transition(0.3s);
 
       &.expand {
         line-height: 1.5;
@@ -342,7 +374,7 @@ main {
     }
 
     h3 {
-      font-size: 3.125em;
+      font-size: 3em;
       line-height: 1;
       font-weight: 300;
       color: $black;
@@ -436,7 +468,7 @@ main {
         .subtitle {
           color: $white;
           font-size: 0.825em;
-          font-weight: 100;
+          font-weight: 400;
           text-align: center;
           text-transform: uppercase;
           margin-top: 0;
@@ -582,6 +614,7 @@ blockquote {
   }
 }
 
+
 .video {
   figure {
     text-align: center;
@@ -664,7 +697,7 @@ blockquote {
     max-height: 500px;
     top: 50%;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 20px);
     background: $white;
     border: 1em solid $white;
     border-radius: 0.5em;
@@ -680,7 +713,7 @@ blockquote {
       background: $black;
       border: 0.2em solid $white;
       border-radius: 50%;
-      padding: 0.2em 0.5em 0.18em 0.5em;
+      padding: 0.2em 0.4em 0.18em 0.4em;
       webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
       cursor: pointer;
@@ -838,7 +871,20 @@ blockquote {
   }
 }
 
+.typewrite .wrap {
+  animation: blinkTextCursor 500ms steps(44) infinite normal;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+}
 
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+
+  to {
+    border-right-color: transparent;
+  }
+}
 
 // Tablets and Mobile
 
@@ -850,8 +896,16 @@ blockquote {
       height: 100%;
     }
 
+
+    menu {
+      menuitem {
+        margin: 0 0.625em;
+      }
+    }
+
     .page-title {
       display: block;
+
       .logo {
         float: none;
         margin: 0 auto;
@@ -875,8 +929,11 @@ blockquote {
 
     h2 {
       margin: 0;
+      font-size: 3.375em;
     }
   }
+
+
 
   .video {
     figure {
@@ -891,6 +948,8 @@ blockquote {
 
 @media (max-width: 762px) {
   header {
+    padding-top: 3.625em;
+
     img.bg {
       height: 100%;
       object-fit: fill;
@@ -935,7 +994,7 @@ blockquote {
         text-align: left;
         top: 0;
         left: 0;
-        height: 2.5em;
+        height: 2.825em;
         background: $white;
         width: 100%;
         box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -943,20 +1002,23 @@ blockquote {
         display: flex;
         align-items: center;
 
-        .language-selector{
+        .language-selector {
           margin-top: -2px;
-        
-          button{
+          margin-right: 10px;
+
+          button {
             color: $black;
             border: 1px solid $red;
-            padding: .5em .4em;
+            padding: 0.5em 0.3em;
           }
-          .dropdown-menu{
-            padding: .5em 0;
+
+          .dropdown-menu {
+            padding: 0.5em 0;
             line-height: 1;
             text-align: center;
-            a{
-              font-size: 0.825em;
+
+            a {
+              font-size: 0.9em;
             }
           }
         }
@@ -1044,17 +1106,18 @@ blockquote {
           font-size: 0.8em;
           float: left;
           font-weight: 100;
-          width: calc(100% - 94px);
+          width: calc(100% - 100px);
           padding-left: 0.3em;
           display: flex;
           overflow: hidden;
           white-space: nowrap;
 
           &::before {
-            content: '';
+            content: "";
             background-image: var(--logo);
             background-size: contain;
             background-repeat: no-repeat;
+            background-position: center;
             width: 40px;
             height: 40px;
             display: block;
@@ -1072,19 +1135,31 @@ blockquote {
         a {
           color: $black;
           text-transform: none;
-          padding: 0.6em;
+          padding: 0 0.6em;
           text-decoration: none;
           font-size: 0.875em;
           font-weight: 600;
           letter-spacing: 0.1em;
+          display: flex;
+          align-items: center;
+
           @include transition(0.3s);
+
+          &::before {
+            content: "\f054";
+            font-weight: 400;
+            font-size: 0.675em;
+            margin-right: 1em;
+            font-family: "FontAwesome";
+            color: $red;
+          }
 
           &:hover {
             color: $red;
           }
         }
 
-        .language-selector{
+        .language-selector {
           display: none;
         }
       }
@@ -1097,7 +1172,7 @@ blockquote {
 
   .container {
     width: 100%;
-    padding: 0.5em;
+    padding: 0.5em 0.825em;
     margin: 0;
   }
 
@@ -1155,10 +1230,37 @@ blockquote {
       padding: 0;
     }
   }
+
+  .light-box {
+    .light-box-con {
+      border-width: 0.5em;
+
+      .light-box-close {
+        margin-right: -0.725em;
+      }
+    }
+  }
+
 }
 
 @media (max-width: 340px) {
- 
+  header {
+    menu {
+      .rwd-menu {
+        h1 {
+          width: calc(100% - 95px);
+
+          &::before {
+            margin-right: 1px;
+          }
+        }
+
+        .language-selector {
+          margin: -2px 0 0 5px;
+        }
+      }
+    }
+  }
 
   main {
     section#contact {
@@ -1169,6 +1271,4 @@ blockquote {
       }
     }
   }
-
-
 }

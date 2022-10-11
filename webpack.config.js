@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -44,7 +43,6 @@ module.exports = {
       outputPath: path.resolve(__dirname,  'icons'),
       publicPath: "/icons",
       favicons: {
-        start_url: "/?homescreen=1",
         appName: configSite.title,
         appShortName: configSite.short_name,
         appDescription: configSite.description,
@@ -53,7 +51,25 @@ module.exports = {
         theme_color: configSite.theme_color,
         manifestMaskable: true,
         icons: {
+          android: { offset: 10,  background: "#fff" },
           appleStartup: false,
+          favicons: false
+        },
+      },
+    }),
+    new FaviconsWebpackPlugin({
+      inject: true,
+      logo: path.resolve(__dirname, 'images', 'favicon.png'),
+      prefix: "",
+      outputPath: path.resolve(__dirname,  'icons'),
+      publicPath: "/icons",
+      favicons: {
+        icons: {
+          appleStartup: false,
+          windows: false,
+          yandex: false,
+          android: false,
+          appleIcon: false,
         },
       },
     }),
@@ -61,23 +77,24 @@ module.exports = {
       exclude: [/.*_includes\/.*/],
       clientsClaim: true,
       skipWaiting: true,
-      runtimeCaching: [
-        {
-          urlPattern: /^https:\/\/fonts\.gstatic\.com/,
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'google-fonts-webfonts'
-          }
-        },
-        { 
-          urlPattern: /images/,
-          handler: 'CacheFirst',
-          options: {
-            expiration: { maxEntries: 10 },
-            cacheName: 'images',
-          },
-        },
-      ]
+       swDest: 'sw.js',//path.resolve(__dirname,  'js', 'sw.js'),
+      // runtimeCaching: [
+      //   {
+      //     urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+      //     handler: 'StaleWhileRevalidate',
+      //     options: {
+      //       cacheName: 'google-fonts-webfonts'
+      //     }
+      //   },
+      //   { 
+      //     urlPattern: /images/,
+      //     handler: 'CacheFirst',
+      //     options: {
+      //       expiration: { maxEntries: 10 },
+      //       cacheName: 'images',
+      //     },
+      //   },
+      // ]
     })
   ],
 };

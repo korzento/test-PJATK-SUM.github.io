@@ -5,32 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="icon" href="{{ page.baseurl }}images/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="{{ site.url }}{{ site.languages[page.language].path }}" />
+    <link rel="alternate" href="{{ site.url }}/" hreflang="x-default" />
+    {% for lang in site.languages %}
+        <link rel="alternate" href="{{ site.url}}{{ lang[1].path }}" hreflang="{{ lang[0] }}" />
+    {% endfor %}
+
+
     {% include _pwa.html %}
 
-    <link rel="preload" href="{{ page.baseurl }}images/{{ site.logo }}" as="image">
+    <link rel="preload" href="{{ site.url }}/images/{{ site.logo }}" as="image">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
     <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
 
     <link rel="preload"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin&display=swap" as="style"
         onload="this.rel='stylesheet'">
-
-    <link rel="preload"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" as="style"
-        onload="this.rel='stylesheet'">
-
        
 
     {% capture inline_css %}
         {% include inline.scss %}
     {% endcapture %}
-    <style>
-        :root{--logo: url({{ page.baseurl }}images/{{ site.logo }})}
+    <style type="text/css">
+        :root,::after,::before{
+            --logo: url({{ site.url }}/images/{{ site.logo }});
+            --logo-white: url({{ site.url }}/images/{{ site.logo_white }})
+        }
         {{inline_css | scssify}}
     </style>
-
-
 
     <!--[if lt IE 9]>
     <html class="lt-ie9">

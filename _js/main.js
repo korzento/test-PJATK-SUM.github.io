@@ -4,6 +4,8 @@ import "./include/parallax.jquery";
 import "./include/video-yt.jquery";
 import "./include/carousel.jquery";
 import "./include/lazy-loading";
+import "./include/txt-type";
+import {fontAwesomeLoad} from "./include/fontawesome-loader";
 
 $(document).ready(function () {
     
@@ -24,12 +26,13 @@ $(document).ready(function () {
         $(this).blur();
     });
 
+    fontAwesomeLoad();
 });
 
 /* eslint-disable no-console */
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js').then(registration => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
             console.log('SW registered: ', registration);
         }).catch(registrationError => {
             console.error('SW registration failed: ', registrationError);
