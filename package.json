@@ -7,9 +7,9 @@
   },
   "scripts": {
     "dev": "webpack --config webpack.config.js --watch",
-    "lint": "eslint _js/**",
-    "lint:fix": "eslint _js/** --fix",
-    "build": "NODE_ENV=production webpack --config webpack.config.js"
+    "lint": "eslint _javascript/**",
+    "lint:fix": "eslint _javascript/** --fix",
+    "build": "eslint _javascript/** && NODE_ENV=production webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",

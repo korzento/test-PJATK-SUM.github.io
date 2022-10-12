@@ -3,7 +3,6 @@
 
 (function ($) {
     
-
     $.fn.menu = function (options) {
         options = $.extend(
             {
@@ -14,16 +13,17 @@
         );
 
         this.each(function () {
-            var $el = $(this),
+            const $el = $(this),
                 elTop = $el.offset().top,
                 elHeight = $el.outerHeight(),
                 $rwdMenu = $('<div class="' + options.classNameRwd + '"></div>'),
                 $item = $el.find("menuitem"),
                 $languageSelector = $el.find('.language-selector').clone(),
                 $itemLink = $item.find("> a"),
-                isMobile = false,
-                $homePageLink = $('<a></a>');
+                $homePageLink = $('<a></a>'),
                 $title = $('<h1></h1>');
+
+            let isMobile = false;
 
             $homePageLink.attr('href', '#homepage');
             $homePageLink.text($("#homepage .title h1").text())
@@ -34,11 +34,11 @@
                 '<button class="menu-hamburger" aria-label="menu"><div class="bar"></div><div class="bar"></div><div class="bar"></div></button>'
             );
 
-            var $button = $rwdMenu.find("button.menu-hamburger");
+            const $button = $rwdMenu.find("button.menu-hamburger");
 
-            var scrollMenuCount = false;
+            let scrollMenuCount = false;
 
-            var addScrollMenu = function () {
+            const addScrollMenu = function () {
                 if (!scrollMenuCount) {
                     if (!$el.hasClass(options.classNameFixed)) {
                         $el.next().css("margin-top", elHeight + "px");
@@ -51,7 +51,7 @@
                 }
             };
 
-            var removeScrollMenu = function () {
+            const removeScrollMenu = function () {
                 if (scrollMenuCount) {
                     if ($el.hasClass(options.classNameFixed)) {
                         $el.removeClass(options.classNameFixed);
@@ -66,11 +66,11 @@
                 $(this).addClass("active");
             });
 
-            var arrElementTop = [];
-            var setActive = function () {
-                var url = window.location.hash;
+            const arrElementTop = [];
+            const setActive = function () {
+                const url = window.location.hash;
                 $itemLink.removeClass("active");
-                var $a = null;
+                let $a = null;
 
                 if (url === "") {
                     $a = $itemLink.first().addClass("active");
@@ -89,13 +89,13 @@
                 setActivePosition($a.offset().top);
             };
 
-            var leftRang = 0,
+            let leftRang = 0,
                 rightRang = 0,
                 indexArr = 0,
                 tmpTop = 0,
                 tmpIndex = -1;
 
-            var setActivePosition = function (position) {
+            const setActivePosition = function (position) {
                 if (arrElementTop.length > 1) {
                     leftRang = arrElementTop[indexArr];
                     if (indexArr < arrElementTop.length - 1) {
@@ -122,15 +122,15 @@
                 }
             };
 
-            var closeRwdMenu = function () {
+            const closeRwdMenu = function () {
                 if ($button.hasClass("is-active")) {
                     $el.css("margin-right", "");
                     $button.removeClass("is-active");
                 }
             };
 
-            var init = function () {
-                var windowWidth = $(window).width();
+            const init = function () {
+                let windowWidth = $(window).width();
 
                 setActive();
 
