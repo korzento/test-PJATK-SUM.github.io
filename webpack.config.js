@@ -84,7 +84,7 @@ module.exports = {
           handler: 'StaleWhileRevalidate',
           options: {
             expiration: { maxEntries: 10 },
-            cacheName: 'images',
+            cacheName: 'assets',
           },
         },
         { 
@@ -92,7 +92,7 @@ module.exports = {
           handler: 'CacheFirst',
           options: {
             expiration: { maxEntries: 10 },
-            cacheName: 'images',
+            cacheName: 'statics',
           },
         },
         {
@@ -106,7 +106,7 @@ module.exports = {
           urlPattern: /^https:\/\/maxcdn\.bootstrapcdn\.com/,
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: 'google-fonts-webfonts'
+            cacheName: 'bootstrapcdn-fonts'
           }
         },
       ]
