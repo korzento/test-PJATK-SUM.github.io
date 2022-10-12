@@ -1,7 +1,7 @@
 {% assign i18n = site.i18n[page.language] %}
 <header id="homepage">
-    <img class="background" src="{{ site.url }}/images/background-300w3.webp"
-         srcset="
+    <img class="background lazy" data-src="{{ site.url }}/images/background-300w.webp"
+         data-srcset="
         {{ site.url }}/images/background-300w.webp 300w, 
         {{ site.url }}/images/background-400w.webp 400w, 
         {{ site.url }}/images/background-600w.webp 600w, 

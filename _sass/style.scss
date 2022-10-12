@@ -61,8 +61,18 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-color: $grey;
+    background-color: $black;
+    opacity: 1;
     filter: brightness(0.7);
+    @include transitionElement(.4s, opacity);
+
+    &.lazy{
+      left: -15px;
+      right: -15px;
+      width: calc(100% + 15px);
+      height: calc(100% + 15px);
+      opacity: 0.8;
+    }
   }
 
   .page-title {
@@ -1003,7 +1013,7 @@ blockquote {
       box-shadow: -10px 0 5px 0 rgba(0, 0, 0, 0.1);
       z-index: 9999999;
       display: block;
-      
+
       @include transitionElement(0.3s, margin-right);
 
       &.active {
