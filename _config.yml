@@ -6,7 +6,7 @@ description: >
   Technik Komputerowych. Studenci specjalizacji mają okazję poznać nowe
   technologie w dziedzinie platform mobilnych - Android, iOS i Windows Phone.
 theme_color: "#e51a26"
-url: "https://sum.pja.edu.pl"
+#url: "https://sum.pja.edu.pl"
 logo: "logo-pjatk.webp"
 logo_white: "logo-pjatk-white.webp"
 github_username: PJATK-SUM
