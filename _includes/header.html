@@ -1,7 +1,7 @@
 {% assign i18n = site.i18n[page.language] %}
 <header id="homepage">
-    <img class="background" src="{{ site.url }}/images/background-300w.webp"
-        srcset="
+    <img class="background" src="{{ site.url }}/images/background-300w3.webp"
+         srcset="
         {{ site.url }}/images/background-300w.webp 300w, 
         {{ site.url }}/images/background-400w.webp 400w, 
         {{ site.url }}/images/background-600w.webp 600w, 
@@ -26,12 +26,13 @@
             <menuitem>
             <div class="language-selector">
                 <button class="dropdown" type="button">
-                    {{ site.languages[page.language].title }}
+                    <img class="flag lazy" sr data-src="{{ site.url }}/images/{{ page.language }}.svg" alt="{{ page.language }}"/>  {{ page.language }}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     {% for lang in site.languages %}
                         {% if lang[0] != page.language %}
-                            <a class="dropdown-item" href="{{ lang[1].path }}">{{ lang[1].title }}</a>
+                            <a class="dropdown-item" href="{{ lang[1].path }}">
+                                <img class="flag lazy" data-src="{{ site.url }}/images/{{ lang[0] }}.svg" alt="{{ lang[0] }}"/> {{ lang[0] }}</a>
                         {% endif %}
                     {% endfor %}
                 </div>

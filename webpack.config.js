@@ -74,27 +74,42 @@ module.exports = {
       },
     }),
     new WorkboxPlugin.GenerateSW({
-      exclude: [/.*_includes\/.*/],
+      exclude: [/.*_includes\/.*/, /.*icons\/.*/],
       clientsClaim: true,
       skipWaiting: true,
-       swDest: 'sw.js',//path.resolve(__dirname,  'js', 'sw.js'),
-      // runtimeCaching: [
-      //   {
-      //     urlPattern: /^https:\/\/fonts\.gstatic\.com/,
-      //     handler: 'StaleWhileRevalidate',
-      //     options: {
-      //       cacheName: 'google-fonts-webfonts'
-      //     }
-      //   },
-      //   { 
-      //     urlPattern: /images/,
-      //     handler: 'CacheFirst',
-      //     options: {
-      //       expiration: { maxEntries: 10 },
-      //       cacheName: 'images',
-      //     },
-      //   },
-      // ]
+       swDest: 'sw.js',
+      runtimeCaching: [
+        { 
+          urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            expiration: { maxEntries: 10 },
+            cacheName: 'images',
+          },
+        },
+        { 
+          urlPattern: /(\.js$|\.css$|static\/)/,
+          handler: 'CacheFirst',
+          options: {
+            expiration: { maxEntries: 10 },
+            cacheName: 'images',
+          },
+        },
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'google-fonts-webfonts'
+          }
+        },
+        {
+          urlPattern: /^https:\/\/maxcdn\.bootstrapcdn\.com/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'google-fonts-webfonts'
+          }
+        },
+      ]
     })
   ],
 };

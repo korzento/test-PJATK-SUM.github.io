@@ -22,9 +22,12 @@
                 $languageSelector = $el.find('.language-selector').clone(),
                 $itemLink = $item.find("> a"),
                 isMobile = false,
-                $title = $("<h1></h1>");
+                $homePageLink = $('<a></a>');
+                $title = $('<h1></h1>');
 
-            $title.text($("#homepage .title h1").text());
+            $homePageLink.attr('href', '#homepage');
+            $homePageLink.text($("#homepage .title h1").text())
+            $title.append($homePageLink);
             $rwdMenu.append($title);
             $rwdMenu.append($languageSelector)
             $rwdMenu.append(
