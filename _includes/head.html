@@ -1,3 +1,5 @@
+{% assign i18n = site.i18n[page.language] %}
+{% assign url = site.url + site.baseurl %}
 <head>
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
@@ -5,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="canonical" href="{{ site.url }}{{ site.languages[page.language].path }}" />
-    <link rel="alternate" href="{{ site.url }}/" hreflang="x-default" />
+    <link rel="canonical" href="{{ url }}{{ site.languages[page.language].path }}" />
+    <link rel="alternate" href="{{ url }}/" hreflang="x-default" />
     {% for lang in site.languages %}
-        <link rel="alternate" href="{{ site.url}}{{ lang[1].path }}" hreflang="{{ lang[0] }}" />
+        <link rel="alternate" href="{{ url }}{{ lang[1].path }}" hreflang="{{ lang[0] }}" />
     {% endfor %}
 
 
@@ -27,8 +29,8 @@
     {% endcapture %}
     <style type="text/css">
         :root,::after,::before{
-            --logo: url({{ site.url }}/images/{{ site.logo }});
-            --logo-white: url({{ site.url }}/images/{{ site.logo_white }})
+            --logo: url({{ url }}/images/{{ i18n.logo }});
+            --logo-white: url({{ url }}/images/{{ i18n.logo_white }})
         }
         {{inline_css | scssify}}
     </style>

@@ -10,7 +10,7 @@ const configSite = YAML.parse(configFile);
 
 module.exports = {
   entry: {
-    main: { import: "./_js/main.js", filename: "js/[name].min.js" },
+    main: { import: "./_javascript/main.js", filename: "js/bundle.min.js" },
   },
   output: {
     path: path.resolve(__dirname),
@@ -88,7 +88,7 @@ module.exports = {
           },
         },
         { 
-          urlPattern: /(\.js$|\.css$|static\/)/,
+          urlPattern: /(js\/|\.html)/,
           handler: 'CacheFirst',
           options: {
             expiration: { maxEntries: 10 },

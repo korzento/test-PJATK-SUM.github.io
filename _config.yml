@@ -31,6 +31,8 @@ i18n:
   pl:
     specialization: Sieci urządzeń <span>mobilnych</span>
     school: Polsko-Japońska Akademia Technik Komputerowych
+    logo: "logo-pjatk.webp"
+    logo_white: "logo-pjatk-white.webp"
     menu:
       main: Strona główna
       about: O nas
@@ -139,9 +141,12 @@ i18n:
       phone_title: Telefon
       email_title: E-mail
       privacy: Polityka prywatności
+      
   en:
     specialization: <span>Mobile</span> networking
     school: Polish-Japanese Academy of Information Technology
+    logo: "logo-pjait.webp"
+    logo_white: "logo-pjait-white.webp"
     menu:
       main: Homepage
       about: About us
