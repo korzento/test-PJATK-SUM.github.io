@@ -13,11 +13,10 @@
         <link rel="alternate" href="{{ url }}{{ lang[1].path }}" hreflang="{{ lang[0] }}" />
     {% endfor %}
 
+    {% include _icons.html %}
 
-    {% include _pwa.html %}
-
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
-    <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com/" />
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com/" />
 
     <link rel="preload"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin&display=swap" as="style"

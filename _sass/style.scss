@@ -1246,12 +1246,20 @@ blockquote {
           margin-top: 1em;
           font-size: 1.37em;
         }
+
+        .icon{
+          font-size: 6.25em;
+        }
       }
 
       .social {
         float: none;
       }
     }
+  }
+
+  .device .col-6{
+    padding: 0 0.8em;
   }
 
   .video {
